@@ -1,3 +1,8 @@
+//-------------------------------------------------
+//Student Gradebook
+//Author: Tyler Dishman
+//compilation: g++ -std=c++11 -o GB ./GradeBook.cpp
+//-------------------------------------------------
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -9,13 +14,11 @@ PrintLogo()
 Function Purpose:
 
 Print the logo for the program.
-
 */
-
 
 void PrintLogo()
 {
-	cout << "Grade Book Calculator App" << endl;
+	cout << "Student Grade Book" << endl;
 }
 
 /*
@@ -27,7 +30,6 @@ Given a question, lower and upper bound values, prints the prompt and allows the
 integer. You may assume the user will always enter an integer. But if a number is entered outside the given
 bounds, the “Invalid answer” message is given and the question repeats until the user enters a valid
 answer. The function returns the valid number entered.
-
 */
 
 int AskNumber(string question, int lower_bound, int upper_bound)
@@ -57,9 +59,7 @@ Function Purpose:
 Invokes AskNumber() to ask the user to enter the Number of Tests, Number of Projects and Number of
 Attendance days. There must be at least one of each, but not more than 50. It returns these three integers
 to the invoking function.
-
 */
-
 
 void AskClassNumbers(int & Number_of_Tests, int & Number_of_Projects, int & Number_of_Attendance_Days)
 {
@@ -81,7 +81,6 @@ Function Purpose:
 
 Given the number of tests, invokes AskNumber() the correct number of
 times. It should calculate and return the average of the test scores entered.
-
 */
 
 double GetTestAverage(int Number_of_Tests)
@@ -113,10 +112,7 @@ GetProjectAverage()
  Given the number of projects, invokes AskNumber() the correct number of times. 
  Note the project number is in the prompt. Project Scores are between 0 and 100. It
  should calculate and return the average of the project scores entered.
-
-
 */
-
 
 double GetProjectAverage(int Number_of_Projects)
 {
@@ -146,8 +142,6 @@ Function Purpose:
 Given the number of attendance days, invokes AskNumber() to get the
 number of days attended. This should be between 0 and the number of attendance days. It then
 calculates and returns the attendance percentage (days attended / attendance days).
-
-
 */
 
 double GetAttendanceScore(int Number_of_Attendance_Days)
@@ -171,7 +165,6 @@ Function Purpose:
 
 Given the Test Average, Project Average and Attendance score, calculates and
 returns the overall score based on the percentages listed
-
 */
 
 double CalcPercentage(double test_average, double project_average, double attendance)
@@ -195,9 +188,7 @@ Fuction Purpose:
 
 Given the overall score, return the letter grade based on the standard 10-
 point scale
-
 */
-
 
 char GetLetterGrade(double Overall_score)
 {
@@ -233,10 +224,7 @@ Function Purpose:
 
 Given the Names, 3 Averages, Overall Score and Letter Grade, prints the report
 as shown above.
-
 */
-
-
 
 void PrintStudent(string name, double t_avg, double p_avg, double d_avg, double o_score, string l_grade)
 {
