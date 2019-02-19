@@ -1,25 +1,7 @@
-/*
-Grade Book Calculator
--------------------------------------------------------------
-By:    Tyler Dishman
-Class: CS 215 Section 004
-Date:  Oct 13th, 2016
-
-*/
 #include <iostream>
 #include <string>
 #include <iomanip>
 using namespace std;
-/*
-
-PrintLogo()
--------------------------------------------------------------------------------------------------
-Function Purpose:
-
-Print the logo for the program.
-
-*/
-
 
 void PrintLogo()
 {
