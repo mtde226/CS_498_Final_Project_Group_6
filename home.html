@@ -1,0 +1,45 @@
+<html lang="en">
+<!--CS498 Project-->
+<head>
+<meta charset="utf-8"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+    $(document).ready(function() {
+        $("button").click(function() { 
+            $.post("./next.cgi",
+            {
+                name: $("#name").val(),
+                class1: $("#class1").val(),
+                class2: $("#class2").val(),
+                class3: $("#class3").val(),
+                class4: $("#class4").val(),
+                class5: $("#class5").val(),
+                class6: $("#class6").val()
+            });
+            $("#h2").remove();
+            $("#h3").remove();
+            $("#setup").remove();
+        });
+    });
+</script>
+</head>
+<title>Homework Planner</title>
+<body>
+    <h2 id="h2">Hello!</h2>
+    <h3 id="h3">Let's get started by creating a profile for you!</h3>
+
+    <p id="setup">What is your name? <br> 
+        <input type="text" id="name"> <br><br>
+        Which classes are you taking?<br> 
+        <input type="text" id="class1"> <br>
+        <input type="text" id="class2"> <br>
+        <input type="text" id="class3"> <br>            
+        <input type="text" id="class4"> <br> 
+        <input type="text" id="class5"> <br>            
+        <input type="text" id="class6"> <br><br>
+        <button>Continue</button>
+    </p>
+    
+</body>
+</html>
+
+    
