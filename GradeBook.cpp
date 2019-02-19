@@ -3,6 +3,16 @@
 #include <iomanip>
 using namespace std;
 
+/*
+PrintLogo()
+-------------------------------------------------------------------------------------------------
+Function Purpose:
+
+Print the logo for the program.
+
+*/
+
+
 void PrintLogo()
 {
 	cout << "Grade Book Calculator App" << endl;
