@@ -10,12 +10,5 @@ public class Jtests {
         assertEquals(Joe.courseList.size(), 0);
     }
 
-    @Test
-    public void testResponse() {
-        string response = "F";
-        assertFalse(validresponse);
-        string resp = "A";
-        assertTrue(validresponse);
-    }
 }
 
