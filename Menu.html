@@ -1,0 +1,31 @@
+<html lang="en">
+<!--CS498 Project-->
+<head>
+<meta charset="utf-8"/>
+</head>
+
+<title>Student Grade Book</title>
+<body>
+    <h2>Student Assignment Tracker</h2>
+    <h3>Let's get started by creating a profile for you!</h3>
+
+    <form action="setup.php" method="post">
+        What would you like to do? <br>
+        <button type="button" onclick=addAssignment()>Add Assignments</button>
+        <button type="botton" onclick=alert('ok')>View Calendar</button>
+        <button type="botton" onclick=alert('ok')>Add Grades</button>
+        <button type="botton" onclick=alert('ok')>View GradeBook</button>
+        <br><br>
+        <input type="submit" value="Continue">
+<p id="demo"></p>
+<script>
+function addAssignment(){
+        alert("You are adding an assignment");
+        text = "adding an assignment";
+        document.getElementById("demo").innerHTML = text;
+}
+
+
+</script>
+</body>
+</html>
