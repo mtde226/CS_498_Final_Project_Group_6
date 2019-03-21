@@ -16,7 +16,17 @@ public class Test {
 		System.out.println(grade);
 	}
 	
-	public char grade() {
+	public void init() {
+		name = "";
+		worth = 0;
+		score = 0;
+		percent = 0;
+		grade = 'N';
+		dueDate = "";
+	}
+	
+	public float[] grade() {
+		float[] returnVals = {score, worth};
 		percent = score/worth;
 		if(percent >= 0.9)
 			grade = 'A';
@@ -28,7 +38,7 @@ public class Test {
 			grade = 'D';
 		else
 			grade = 'F';
-		return grade;
+		return returnVals;
 	}
 	
 	public Test addExam(Test placeHolder) {
@@ -37,7 +47,7 @@ public class Test {
 		System.out.print("\nWhat day is the exam?");
 		placeHolder.dueDate = in.nextLine();
 		System.out.print("\nWhich exam is it? (enter a number)?");
-		placeHolder.name = "Exam" + in.nextLine();
+		placeHolder.name = "Exam " + in.nextLine();
 		return placeHolder;
 	}
 }
