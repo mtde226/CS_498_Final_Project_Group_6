@@ -9,6 +9,7 @@ public class Test {
 	public float percent = 0;
 	private char grade = 'N';
 	public String dueDate = "";
+	public Boolean complete = false;
 	Scanner in = new Scanner(System.in);
 	
 	public void print() {

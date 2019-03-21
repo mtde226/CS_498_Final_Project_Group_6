@@ -43,7 +43,7 @@ public class course {
 		return -1; //returns -1 if not found
 	}
 	
-	public void setupCourse() {
+	public void addCourse() {
 		System.out.print("\nWhat is the course number? ");
 		courseNumber = in.nextInt();
 		System.out.print("\nWhat is the professor's name? ");
