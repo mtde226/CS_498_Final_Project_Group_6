@@ -4,37 +4,117 @@ import java.util.*;
 
 public class GradeBookMain {
 	
-	public ArrayList<Student> students = new ArrayList<Student>();
-	private String response;
-	private Boolean validResponse = false;
-	Scanner in = new Scanner(System.in);
+	public static ArrayList<Student> students = new ArrayList<Student>();
+	static Scanner in = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		printGradeBook();
-	}
-
-	public static void printGradeBook() {
-		System.out.println("Student Grade Book");
+		int Option = 0;
+		//String Option = "";
+		//Boolean Running = true;
+		printLogo();
+		Option = printMainMenu();
+		students.add(Student.addStudent());
+		students.get(0).courseList.add(course.addCourse());
+		students.get(0).courseList.get(0).assignmentList.add(Assignment.addAssignment());
+		students.get(0).courseList.get(0).testList.add(Test.addExam());
+		if (Option == 1) {
+			
+		}
+		
+		else if(Option == 2) {
+			students.get(0).courseList.get(0).scoreAssignment(students.get(0).courseList.get(0).assignmentList);
+			students.get(0).courseList.get(0).scoreTest(students.get(0).courseList.get(0).testList);
+			printAssignments(students.get(0));
+		}
+		
+		else if(Option == 3) {
+			
+		}
+		else if(Option == 4) {
+			
+		}
 	}
 
 	public static void printLogo() {
-		System.out.println("Student Assignment Tracker");
+		System.out.println("Student Grade Book");
 	}
 	
-	public String printMenu() {
-		while(!validResponse) {
-		System.out.print("What would you like to do?\n A. View the Gradebook \nB. View assignments \nC. View the exams \nD. View the tasks ");
-		response = in.nextLine();
-			if (response != "A" && response != "B" && response != "C" && response != "D") {
-				System.out.print("Invalid response. Please choose option A, B, C, or D");
-				response = in.nextLine();
-			}
-			else
-				validResponse = true;
+	public static void printGradeBook() {	
+		System.out.println("The final grades in the gradebook:");
+		for (int i = 0; i < students.size(); i++) {
+			
 		}
-		validResponse = false;
+	}
+	
+	public static void printAssignments(Student studentOfInterest) {
+		int response = 0;
+		int courseNum = 0;
+		System.out.print("Print assignments for all courses or just one course? Enter 1 for all courses or 2 for one course (Case Sensitive)");
+		response = in.nextInt();
+		if (response == 1)
+			for (int i = 0; i < studentOfInterest.courseList.size(); i++) {
+				studentOfInterest.courseList.get(i).printAssignments();
+			}
+		else {
+			Boolean validResponse = false;
+			System.out.println("For which course would you like to view assignments? (case sensitive)");
+			while(!validResponse) {
+			courseNum = in.nextInt();
+			for (int i = 0; i < studentOfInterest.courseList.size(); i++) {
+				if (courseNum == studentOfInterest.courseList.get(i).courseNumber)
+					studentOfInterest.courseList.get(i).printAssignments();
+				}
+			}
+		}
+	}
+	
+	public static int printMainMenu() {
+		int response;
+		Boolean validResponse = false;
+		System.out.print("What would you like to do?\n1 View the Gradebook \n2 View assignments \n3 View the exams \n4 View tasks \n");
+		response = in.nextInt();
+		while(!validResponse) {
+			if (response == 1 || response == 2 || response == 3 || response == 4) {
+				validResponse = true;
+			}
+			else {
+				System.out.print("\nInvalid response. Please choose option 1, 2, 3, or 4\n");
+				response = in.nextInt();
+				validResponse = false;
+			}
+		}
 		return response;
 	}
+	
+	public static Boolean validateStringResponse(String input, String[] options, String message) {
+		for (int i = 0; i < options.length; i++) {
+			if (input == options[i])
+				return true;
+			else 
+				System.out.print(message);
+		}
+		return false;
+	}
+	
+	public static Boolean validateIntResponse(int input, int[] options, String message) {
+		for (int i = 0; i < options.length; i++) {
+			if (input == options[i])
+				return true;
+			else 
+				System.out.print(message);
+		}
+		return false;
+	}
+	
+	public static Boolean validateCharResponse(char input, char[] options, String message) {
+		for (int i = 0; i < options.length; i++) {
+			if (input == options[i])
+				return true;
+			else 
+				System.out.print(message);
+		}
+		return false;
+	}
+	
 }
 

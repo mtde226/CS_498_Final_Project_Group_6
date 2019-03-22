@@ -10,7 +10,7 @@ public class Test {
 	private char grade = 'N';
 	public String dueDate = "";
 	public Boolean complete = false;
-	Scanner in = new Scanner(System.in);
+	static Scanner in = new Scanner(System.in);
 	
 	public void print() {
 		System.out.println(percent);
@@ -42,13 +42,14 @@ public class Test {
 		return returnVals;
 	}
 	
-	public Test addExam(Test placeHolder) {
-		System.out.print("\nHow many possible points?");
+	public static Test addExam() {
+		Test placeHolder = new Test();
+		System.out.print("How many possible points?");
 		placeHolder.worth = in.nextInt();
-		System.out.print("\nWhat day is the exam?");
-		placeHolder.dueDate = in.nextLine();
-		System.out.print("\nWhich exam is it? (enter a number)?");
-		placeHolder.name = "Exam " + in.nextLine();
+		System.out.print("What day is the exam?");
+		placeHolder.dueDate = in.next();
+		System.out.print("Which exam is it (enter a number)?");
+		placeHolder.name = "Exam " + in.next();
 		return placeHolder;
 	}
 }

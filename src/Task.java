@@ -8,9 +8,8 @@ public class Task {
 	public Boolean complete = false;
 	public String dueDate = "";
 	Scanner in = new Scanner(System.in);
-	public Task taskPlaceHolder = new Task();
 	
-	public Task addTask() {//Allows the user to add a new task to the their task list
+	public Task addTask(Task taskPlaceHolder) {//Allows the user to add a new task to the their task list
 		System.out.print("\nWhat is the task name? ");
 		taskPlaceHolder.name = in.nextLine();
 		System.out.print("\nWhat is the task due date? ");

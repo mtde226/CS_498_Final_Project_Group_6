@@ -11,12 +11,12 @@ public class Assignment {
 	private char grade = 'N';
 	public String dueDate = "";
 	public Boolean complete = false;
-	Scanner in = new Scanner(System.in);
+	static Scanner in = new Scanner(System.in);
 	
 	public void print() {
-		System.out.println(name);
-		System.out.println(percent);
-		System.out.println(grade);
+		System.out.println("Assignment: " + name);
+		System.out.println("Score Percent: " + percent);
+		System.out.println("Assignment Grade: " + grade);
 	}
 	
 	public void init() {
@@ -44,15 +44,16 @@ public class Assignment {
 		return returnVals;
 	}
 		
-	public Assignment addAssignment(Assignment placeHolder) {
-		System.out.print("What is the assignment name?");
-		placeHolder.name = in.nextLine();
-		while(worth < 0) {
-			System.out.print("\nHow many possible points (must be non-negative?");
+	public static Assignment addAssignment() {
+		Assignment placeHolder = new Assignment();
+		System.out.print("What is the assignment name? ");
+		placeHolder.name = in.next();
+		while(placeHolder.worth <= 0) {
+			System.out.print("How many possible points (must be non-negative?) ");
 			placeHolder.worth = in.nextInt();
 		}
-		System.out.print("\nWhat is the assignment due date?");
-		placeHolder.dueDate = in.nextLine();
+		System.out.print("What is the assignment due date? ");
+		placeHolder.dueDate = in.next();
 		return placeHolder;
 	}
 }

@@ -29,71 +29,70 @@ public class course {
 	public Task taskPlaceHolder = new Task();
 	
 	public String response = "";
-	Scanner in = new Scanner(System.in);
+	static Scanner in = new Scanner(System.in);
 	
-	public int searchAssignments(ArrayList<Assignment> List, String term) {
+	public static int searchAssignments(ArrayList<Assignment> List) {
+		String response = "HW";
 		for (int i = 0; i < List.size(); i++) {
-			placeHolder = List.get(i);
-			if (placeHolder.name == term) {
-				placeHolder.init();//clears the placeholder variable
+			System.out.print(List.get(i).name);
+			if (List.get(i).name == response) {
+				System.out.print("returning");
 				return i;//returns index of the assignment
 			}
 		}
-		placeHolder.init();//clears the placeholder variable
 		return -1; //returns -1 if not found
 	}
 	
-	public void addCourse() {
-		System.out.print("\nWhat is the course number? ");
-		courseNumber = in.nextInt();
-		System.out.print("\nWhat is the professor's name? ");
-		professor = in.nextLine();
-		System.out.print("\nHow much are exams worth? ");
-		examWorth = in.nextFloat();
-		System.out.print("\nHow much are assignments worth? ");
-		assignmentWorth = in.nextFloat();
+	public static course addCourse() {
+		course placeHolder = new course();
+		System.out.print("What is the course number? ");
+		placeHolder.courseNumber = in.nextInt();
+		System.out.print("What is the professor's name? ");
+		placeHolder.professor = in.next();
+		System.out.print("How much are exams worth? ");
+		placeHolder.examWorth = in.nextFloat();
+		System.out.print("How much are assignments worth? ");
+		placeHolder.assignmentWorth = in.nextFloat();
+		return placeHolder;
 	}
 	
-	public int searchTests(ArrayList<Test> List, String term) {//Iterates and finds a test
+	public static int searchTests(ArrayList<Test> List) {//Iteratively searches to find a test
+		String response = "Exam 1";
 		for (int i = 0; i <  List.size(); i++) {
-			examPlaceHolder = List.get(i);
-			if (examPlaceHolder.name == term) {
-				examPlaceHolder.init();//clears the placeholder variable
+			if (List.get(i).name == response) {
 				return i;//returns index of the exam
 			}
 		}
-		examPlaceHolder.init();//clears the placeholder variable
 		return -1;//returns -1 if not found
 	}//searchTests()
 	
-	public void scoreAssignment(ArrayList<Assignment> List, float score) {//A function to allow the student to enter a score (or hypothetical score)
-		System.out.print("\nWhich assignment would you like to grade (case sensitive)");
-		response = in.nextLine();//Requests input from the user
-		int index = searchAssignments(List, response);
-		placeHolder = List.get(index);
-		placeHolder.score = score;
-		List.set(index, placeHolder);
+	public void scoreAssignment(ArrayList<Assignment> List) {//A function to allow the student to enter a score (or hypothetical score)
+		System.out.print("Which assignment would you like to grade? ");
+		//String response = in.next();//Requests input from the user
+		int index = searchAssignments(List);
+		index = 0;
+		System.out.print("What is the score?");
+		int score = in.nextInt();
+		List.get(index).score = score;
 		gradeAssignments();
-		placeHolder.init();//clears the placeholder variable
 	}//scoreAssignment()
 	
-	public void scoreTest(ArrayList<Test> List, float score) {//A function to allow the student to enter a score (or hypothetical score)
-		System.out.print("\nWhich exam would you like to grade (case sensitive, format:Exam #)");
-		response = in.nextLine();//Requests input from the user
-		int index = searchTests(List, response);
-		examPlaceHolder = List.get(index);
-		examPlaceHolder.score = score;
-		List.set(index, examPlaceHolder);
+	public void scoreTest(ArrayList<Test> List) {//A function to allow the student to enter a score (or hypothetical score)
+		System.out.print("Which exam would you like to grade (case sensitive, format:Exam #)");
+		//response = in.next();//Requests input from the user
+		int index = searchTests(List);
+		index = 0;
+		System.out.print("What is the score?");
+		int score = in.nextInt();
+		List.get(index).score = score;
 		gradeTests();
-		examPlaceHolder.init();//clears the placeholder variable
 	}//scoreTest()
 	
 	public void gradeAssignments() {//Grades all Assignments
 		for (int i = 0; i < assignmentList.size(); i++) {
-			placeHolder = assignmentList.get(i);
-			float[] vals = placeHolder.grade();
+			float[] vals = assignmentList.get(i).grade();
 			TotalAssignmentPoints = TotalAssignmentPoints + vals[0];
-			TotalAssignmentWorth = TotalAssignmentWorth + vals[2];
+			TotalAssignmentWorth = TotalAssignmentWorth + vals[1];
 			placeHolder.init();//clears the placeholder variable
 		}
 		assignmentPercent = TotalAssignmentPoints/TotalAssignmentWorth;
@@ -101,19 +100,29 @@ public class course {
 	
 	public void gradeTests() {//Grades all Tests
 		for (int i = 0; i < assignmentList.size(); i++) {
-			examPlaceHolder = testList.get(i);
-			float[] vals = examPlaceHolder.grade();
+			float[] vals = testList.get(i).grade();
 			TotalTestPoints = TotalTestPoints + vals[0];
-			TotalTestWorth = TotalTestWorth + vals[2];
-			examPlaceHolder.init();//clears the placeholder variable
+			TotalTestWorth = TotalTestWorth + vals[1];
 		}
 		testPercent = TotalTestPoints/TotalTestWorth;
 	}//gradeTests()
 	
 	public void print() {
-		System.out.println(courseNumber);
-		System.out.println(professor);
-		System.out.println(coursePercent);
-		System.out.println(letterGrade);
+		System.out.println("Course: " + courseNumber);
+		System.out.println("Professor: " + professor);
+		System.out.println("Percent: " + coursePercent);
+		System.out.println("Grade: " + letterGrade);
 	}
+	
+	public void printAssignments() {
+		for (int i = 0; i < assignmentList.size(); i++)
+			assignmentList.get(i).print();
+	}
+	
+	public void printTests() {
+		for (int i = 0; i < testList.size(); i++)
+			testList.get(i).print();
+	}
+	
+	
 }
