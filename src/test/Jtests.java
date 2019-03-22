@@ -9,7 +9,7 @@ public class Jtests {
     public void testStudentName() {
         Task tmp = new Task();
         tmp.completeTask();
-        assertEquals(tmp.completed, true);
+        assertEquals(tmp.complete, true);
     }
 
 }
