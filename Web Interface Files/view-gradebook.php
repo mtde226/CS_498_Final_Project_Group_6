@@ -1,12 +1,6 @@
-<?php
-
-$student->username = $_POST["name"];
-$student->courses = array($_POST["course1"],$_POST["course2"],$_POST["course3"],$_POST["course4"],$_POST["course5"],$_POST["course6"]);
-$student->assignments = array();
-$student->grades = array();
-$userData = fopen("userData.json", "a+");
-fwrite($userData, json_encode($student));
-fclose($userData);
+<?php 
+$userData = file_get_contents('userData.json');
+$userData = json_decode($userData, true);
 ?>
 
 <html lang="en">
@@ -19,7 +13,18 @@ fclose($userData);
 </head>
 <body>
 
-<h2 id="htwo">Thanks, <?php echo ($student->username); ?>!</h2>
+<h2 id="htwo">Grades:</h2>
+<?php
+foreach($userData["grades"] as $k1=>$v1) {
+    foreach($v1 as $k2=>$v2) {
+        echo $k2;
+        echo ": ";
+        echo $v2;
+        echo "<br>";
+    }
+    echo "<br>";
+}
+?>
 <p id="par">
 What would you like to do now?<br><br>
 <form action="add-assignment.php" method="post">
