@@ -4,11 +4,12 @@ import org.junit.Test;
 
 public class Jtests {
 
+    //test completeTask()
     @Test
     public void testStudentName() {
-        Student tmp = new Student();
-        tmp.addStudent();
-        assertEquals(tmp.name, "James Garfield");
+        Task tmp = new Task();
+        tmp.completeTask();
+        assertEquals(tmp.completed, true);
     }
 
 }
