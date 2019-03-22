@@ -6,8 +6,9 @@ public class Jtests {
 
     @Test
     public void testStudentName() {
-        Student Joe = new Student(); // MyClass is tested
-        assertEquals(Joe.courseList.size(), 0);
+        Student tmp = new Student();
+        tmp.addStudent();
+        assertEquals(tmp.Name, "James Garfield");
     }
 
 }
