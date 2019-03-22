@@ -8,7 +8,7 @@ public class Jtests {
     public void testStudentName() {
         Student tmp = new Student();
         tmp.addStudent();
-        assertEquals(tmp.Name, "James Garfield");
+        assertEquals(tmp.name, "James Garfield");
     }
 
 }
