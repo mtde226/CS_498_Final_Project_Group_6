@@ -5,6 +5,7 @@ $assgnObj->course = $_POST["selected_course"];
 $assgnObj->label = $_POST["label"];
 $assgnObj->score = $_POST["score"];
 $assgnObj->weight = $_POST["weight"];
+$assgnObj->category = $_POST["category"]
 array_push($userData["grades"], $assgnObj);
 file_put_contents('userData.json', json_encode($userData));
 ?>

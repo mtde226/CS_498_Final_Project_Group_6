@@ -25,6 +25,12 @@ echo "<option value='"; echo $value; echo "'>"; echo $value; echo "</option>";
 <input type='number' min="0" name='score'>
 <h3>How many points is this out of?</h3>
 <input type='number' min="0" name='weight'>
+<h3>Which category does this fall under?</h3>
+<select name='category'>
+<option value='assignment'>Assignment</option>
+<option value='exam'>Exam</option>
+<option value='quiz'>Quiz</option>
+</select>
 <input type='submit' value='Continue'>
 </form>
 
