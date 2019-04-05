@@ -14,6 +14,18 @@ $userData = json_decode($userData, true);
 <body>
 
 <h2 id="htwo">Upcoming tasks:</h2>
+<table style="width:100%">
+<tr>
+<?php 
+foreach($userData["courses"] as $k=>$v){
+    foreach($v as $k2=>$v2){
+        echo "<td>";
+        echo $v2;
+        echo "</td>";
+    }
+}
+?>
+</tr>
 <?php
 foreach($userData["assignments"] as $k1=>$v1) {
     foreach($v1 as $k2=>$v2) {
@@ -25,6 +37,7 @@ foreach($userData["assignments"] as $k1=>$v1) {
     echo "<br>";
 }
 ?>
+</table>
 <p id="par">
 What would you like to do now?<br><br>
 <form action="add-assignment.php" method="post">
