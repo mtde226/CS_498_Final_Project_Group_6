@@ -1,12 +1,20 @@
 <?php
+
+function letterGrade($ptsPossible, $ptsEarned){
+    $score = floatval($ptsEarned) / floatval($ptsPossible);
+    if($score >= 0.90) {return "A";}
+    elseif($score >= 0.80) {return "B";}
+    elseif($score >= 0.70) {return "C";}
+    elseif($score >= 0.60) {return "D";}
+    else {return "E";}
+}
 $userData = file_get_contents('userData.json');
 $userData = json_decode($userData, true);
-$assgnObj->course = $_POST["selected_course"];
 $assgnObj->label = $_POST["label"];
-$assgnObj->score = $_POST["score"];
-$assgnObj->weight = $_POST["weight"];
-$assgnObj->category = $_POST["category"]
-array_push($userData["grades"], $assgnObj);
+$assgnObj->ptsEarned = $_POST["score"];
+$assgnObj->ptsPossible = $_POST["weight"];
+$assgnObj->letter = letterGrade($_POST["weight"], $_POST["score"]);
+array_push($userData["courses"][$_POST["selected_course"]][$_POST["category"]], $assgnObj);
 file_put_contents('userData.json', json_encode($userData));
 ?>
 

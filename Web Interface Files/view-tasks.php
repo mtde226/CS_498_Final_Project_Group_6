@@ -14,29 +14,35 @@ $userData = json_decode($userData, true);
 <body>
 
 <h2 id="htwo">Upcoming tasks:</h2>
-<table style="width:100%">
+<table>
 <tr>
-<?php 
-foreach($userData["courses"] as $k=>$v){
-    foreach($v as $k2=>$v2){
-        echo "<td>";
-        echo $v2;
-        echo "</td>";
+<?php
+foreach($userData["courses"] as $k1=>$v1) {
+    echo "<td>";
+    echo "<h2>";
+    echo $k1;
+    echo "</h2>";
+    foreach($v1 as $k2=>$v2) {
+        if($k2 == "Assignments"){
+            echo "<h3>";
+            echo $k2;
+            echo ": </h3>";
+            foreach($v2 as $k3=>$v3) {
+                foreach($v3 as $k4=>$v4) {
+                    if($k4 == "isGraded") {
+                        if(!$v4){
+                            echo $v3;
+                            echo "<br>";
+                        }
+                    }
+                }
+            }
+        }
     }
+    echo "</td>";
 }
 ?>
 </tr>
-<?php
-foreach($userData["assignments"] as $k1=>$v1) {
-    foreach($v1 as $k2=>$v2) {
-        echo $k2;
-        echo ": ";
-        echo $v2;
-        echo "<br>";
-    }
-    echo "<br>";
-}
-?>
 </table>
 <p id="par">
 What would you like to do now?<br><br>

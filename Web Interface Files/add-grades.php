@@ -27,9 +27,9 @@ echo "<option value='"; echo $key; echo "'>"; echo $key; echo "</option>";
 <input type='number' min="0" name='weight'>
 <h3>Which category does this fall under?</h3>
 <select name='category'>
-<option value='assignment'>Assignment</option>
-<option value='exam'>Exam</option>
-<option value='quiz'>Quiz</option>
+<option value='Assignments'>Assignments</option>
+<option value='Exams'>Exams</option>
+<option value='Quizzes'>Quizzes</option>
 </select>
 <input type='submit' value='Continue'>
 </form>

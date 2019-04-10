@@ -5,7 +5,8 @@ $assgnObj->course = $_POST["selected_course"];
 $assgnObj->label = $_POST["label"];
 $assgnObj->dueDate = $_POST["dueDate"];
 $assgnObj->dueTime = $_POST["dueTime"];
-array_push($userData["assignments"], $assgnObj);
+$assgnObj->isGraded = FALSE;
+array_push($userData["courses"][$_POST["selected_course"]]["assignments"], $assgnObj);
 file_put_contents('userData.json', json_encode($userData));
 ?>
 
