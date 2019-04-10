@@ -17,7 +17,7 @@ public class GradeBookMain {
 		students.get(0).courseList.get(0).assignmentList.add(Assignment.addAssignment());
 		students.get(0).courseList.get(0).testList.add(Test.addExam());
 		if (Option == 1) {
-			
+			//Adding option 1 - View the Gradebook 
 		}
 		
 		else if(Option == 2) {
@@ -27,10 +27,10 @@ public class GradeBookMain {
 		}
 		
 		else if(Option == 3) {
-			
+			//adding option 3 - View the exams
 		}
 		else if(Option == 4) {
-			
+			//adding option 4 - View tasks
 		}
 	}
 
