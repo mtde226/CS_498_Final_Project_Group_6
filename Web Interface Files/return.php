@@ -4,7 +4,7 @@
 $username = $_POST["user"];
 echo 'Hello ' . $username;
 
-$userData = fopen("userData.json", "a+");
+$userData = file_get_contents("userData.json");
 $arr = json_decode($userData, true);
 if (array_search($username, $arr) == FALSE)
 {
