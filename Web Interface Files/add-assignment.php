@@ -16,7 +16,7 @@ $userData = file_get_contents('userData.json');
 $userData = json_decode($userData);
 var_dump($userData);
 foreach($userData->courses as $key=>$value) { 
-echo "<option value='"; echo $value; echo "'>"; echo $value; echo "</option>";
+echo "<option value='"; echo $key; echo "'>"; echo $key; echo "</option>";
 } ?>
 </select>
 <h3>What is the assignment?</h3>
