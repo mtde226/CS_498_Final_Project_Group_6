@@ -4,7 +4,7 @@
 $username = $_POST["user"];
 echo 'Hello ' . $username;
 
-$userData = fopen("userData.json", "a+");
+$userData = file_get_contents("userData.json");
 $arr = json_decode($userData, true);
 if (array_search($username, $arr) == FALSE)
 {
@@ -26,7 +26,6 @@ if (array_search($username, $arr) == FALSE)
 </head>
 <body>
 
-<h2 id="htwo">Thanks, <?php echo ($student->username); ?>!</h2>
 <p id="par">
 What would you like to do now?<br><br>
 <form action="add-assignment.php" method="post">
