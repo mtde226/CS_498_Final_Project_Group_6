@@ -21,11 +21,12 @@ function letterGrade($pts){
 <body>
 
 <h2 id="htwo">Grades:</h2>
-<table>
+<table valign="top">
 <tr>
 <?php
 foreach($userData["courses"] as $k1=>$v1) {
-    echo "<td>";
+    if ($k1!="") {
+    echo "<td valign='top'>";
     echo "<h2>";
     echo $k1;
     echo "</h2>";
@@ -37,9 +38,10 @@ foreach($userData["courses"] as $k1=>$v1) {
     $quizPoss = 0.0;
     foreach($v1 as $k2=>$v2) {
         if($k2 == "Exams"){
-            echo "<h3>";
+            echo "<h3 valign='top'>";
             echo $k2;
             echo ": </h3>";
+            echo "<p style='height:100; overflow-x:auto;'>";
             foreach($v2 as $k3=>$v3) {
                 foreach($v3 as $k4=>$v4) {
                     if($k4 == "ptsPossible") {$examPoss = $examPoss + floatval($v4);}
@@ -48,11 +50,13 @@ foreach($userData["courses"] as $k1=>$v1) {
                     echo "<br>";
                 }
             }
+            echo "</p>";
         }
         if($k2 == "Assignments"){
-            echo "<h3>";
+            echo "<h3 valign='top'>";
             echo $k2;
             echo ": </h3>";
+            echo "<p style='height:100; overflow-x:auto;'>";
             foreach($v2 as $k3=>$v3) {
                 foreach($v3 as $k4=>$v4) {
                     if($k4 == "ptsPossible") {$assgnPoss = $assgnPoss + floatval($v4);}
@@ -61,11 +65,13 @@ foreach($userData["courses"] as $k1=>$v1) {
                     echo "<br>";
                 }
             }
+            echo "</p>";
         }
         if($k2 == "Quizzes"){
             echo "<h3>";
             echo $k2;
             echo ": </h3>";
+            echo "<p style='height:100; overflow-x:auto;'>";
             foreach($v2 as $k3=>$v3) {
                 foreach($v3 as $k4=>$v4) {
                     if($k4 == "ptsPossible") {$quizPoss = $quizPoss + floatval($v4);}
@@ -74,6 +80,7 @@ foreach($userData["courses"] as $k1=>$v1) {
                     echo "<br>";
                 }
             }
+           echo "</p>";
         }
         if($k2 == "aweight") {$assgnWgt = floatval($v2);}
         if($k2 == "eweight") {$examWgt = floatval($v2);}
@@ -89,6 +96,7 @@ foreach($userData["courses"] as $k1=>$v1) {
     echo letterGrade(($examPts + $assgnPts + $quizPts));
     echo "<br>";
     echo "</td>";
+}
 }
 ?>
 </tr>
@@ -111,3 +119,4 @@ What would you like to do now?<br><br>
 
 </body>
 </html>
+
