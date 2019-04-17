@@ -31,12 +31,12 @@ foreach($userData["courses"] as $k1=>$v1) {
             echo "<p style='height:100; overflow-x:auto;'>";
             foreach($v2 as $k3=>$v3) {
                 foreach($v3 as $k4=>$v4) {
-                    if($k4 == "isGraded") {
-                        if(!$v4){
-                            echo $v3;
+                    //if($k4 === "isGraded") {
+                        //if(!$v4){
+                            echo $v4;
                             echo "<br>";
-                        }
-                    }
+                      //  }
+                    //}
                 }
             }
             echo "</p>";
@@ -65,5 +65,6 @@ What would you like to do now?<br><br>
 
 </body>
 </html>
+
 
 
