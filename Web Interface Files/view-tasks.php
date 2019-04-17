@@ -18,7 +18,8 @@ $userData = json_decode($userData, true);
 <tr>
 <?php
 foreach($userData["courses"] as $k1=>$v1) {
-    echo "<td>";
+    if ($k1!="") {
+    echo "<td valign='top'>";
     echo "<h2>";
     echo $k1;
     echo "</h2>";
@@ -27,6 +28,7 @@ foreach($userData["courses"] as $k1=>$v1) {
             echo "<h3>";
             echo $k2;
             echo ": </h3>";
+            echo "<p style='height:100; overflow-x:auto;'>";
             foreach($v2 as $k3=>$v3) {
                 foreach($v3 as $k4=>$v4) {
                     if($k4 == "isGraded") {
@@ -37,10 +39,11 @@ foreach($userData["courses"] as $k1=>$v1) {
                     }
                 }
             }
+            echo "</p>";
         }
     }
     echo "</td>";
-}
+}}
 ?>
 </tr>
 </table>
@@ -62,3 +65,5 @@ What would you like to do now?<br><br>
 
 </body>
 </html>
+
+
