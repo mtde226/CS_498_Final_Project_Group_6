@@ -1,5 +1,10 @@
 <?php
 
+/* Set up user data--each user can have up to six courses. Each course has weights
+for assignments, exams, and quizzes (for grading purposes), an array of assignments, 
+an array of quizzes, and an array of exams. This is then written to a json file to 
+store the data for future usage. */
+
 $student->username = $_POST["name"];
 
 $c1->Assignments = array();
@@ -63,6 +68,8 @@ fclose($userData);
 </head>
 <body>
 
+<!-- HTML form to determine next action. User can add assignments or grades, or view assignments or grades -->  
+  
 <h2 id="htwo">Thanks, <?php echo ($student->username); ?>!</h2>
 <p id="par">
 What would you like to do now?<br><br>
