@@ -1,5 +1,8 @@
 <html lang="en">
-<!--CS498 Project-->
+<!--
+CS498 Project Home Page
+Contains 2 HTML forms: 1 to set up a new user account, and 1 to login as an existing user
+-->
 <head>
 <meta charset="utf-8"/>
 </head>
@@ -7,7 +10,7 @@
 <body>
     <h2>Hello!</h2>
     <h3>Let's get started by creating a profile for you!</h3>
-
+<!-- new user setup form, links to setup.php -->
     <form action="setup.php" method="post">
         What is your name? <br> 
         <input type="text" name="name"> <br><br>
@@ -85,6 +88,7 @@
         <br>
         <input type="submit" value="Continue">
     </form>
+<!-- return user login form, links to return.php -->
     <h3>Or, if you're a returning user:</h3>
     <form action="return.php" method="post"> 
         Name: <input type="text" name="user"> <br><br>
