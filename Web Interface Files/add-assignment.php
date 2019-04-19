@@ -1,3 +1,9 @@
+<!--
+If the user selects the 'Add Assignment' option, they are
+redirected to this page, which collects information about the
+assignment via HTML form
+-->
+
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
