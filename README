@@ -1,0 +1,13 @@
+CS498 Project
+
+The files that are actually used for our website are located in the 'Web Interface Files' directory. 
+The original code which inspired our project can be found under 'C++ Reference Code' and 'src'.
+
+For the 'Web Interface Files', the website starts at home.html. We currently have it hosted at the following url:
+http://www.cs.uky.edu/~jlre249/CS_498_Final_Project_Group_6/Web%20Interface%20Files/home.html
+
+From the home page, the user can either create a new account or login as a return user. Currently, having multiple users
+is untested, but a single user can successfully return to access their saved data.
+
+Once the user has either logged in or created a new account, they have four options: (1) add assignment, (2) view assignments,
+(3) add grades, (4) view grades.
