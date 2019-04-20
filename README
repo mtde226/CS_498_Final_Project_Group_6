@@ -11,3 +11,7 @@ is untested, but a single user can successfully return to access their saved dat
 
 Once the user has either logged in or created a new account, they have four options: (1) add assignment, (2) view assignments,
 (3) add grades, (4) view grades.
+
+There is one remaining issue with view tasks, as it displays already graded assignments. If we were to extend this project into
+the future we would implement ungraded assignments in this window only, and have the option to check them off when they were
+graded.
